@@ -19,7 +19,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('courrier', function (Blueprint $table) {
-            $table->dropColumn('image');
+            $table->dropColumn('image')->nullable();
         });
     }
 };

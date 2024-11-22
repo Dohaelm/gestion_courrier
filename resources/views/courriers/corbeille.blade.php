@@ -50,13 +50,14 @@
                         <td>{{$courrier->destinataire}}</td>
                         <td>{{$courrier->expediteur}}</td>
                         <td>{{$courrier->description}}</td>
-                        <td>
-                            @if ($courrier->image)
+                        <td> 
+                            @if ($courrier->image && $courrier->image!='default.png')
                             <a href="{{ asset('storage/' . $courrier->image) }}" target="_blank" class="view-image-link">Ouvrir le document</a>
                             @else
                                 Aucun document
                             @endif
-                        </td>
+                            </td>
+                       
                         <td>
                             {{$courrier->motif_de_suppression}}
                       

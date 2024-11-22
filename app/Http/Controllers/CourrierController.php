@@ -14,6 +14,7 @@ class CourrierController extends Controller
     public function index(Request $request)
     {
         $query = Courrier::query();
+        $searchTerm = $request->input('search');
     
         if ($request->filled('search')) {
             $searchTerms = explode(' ', $request->input('search'));
@@ -30,7 +31,7 @@ class CourrierController extends Controller
     
         $courriers = $query->paginate(10);
     
-        return view('courriers.index', compact('courriers'));
+        return view('courriers.index', compact('courriers','searchTerm'));
     }
     public function corbeille(Request $request)
     {
@@ -132,7 +133,7 @@ class CourrierController extends Controller
                 'destinataire' => $courrier->destinataire,
                 'expediteur' => $courrier->expediteur,
                 'description' => $courrier->description,
-                'image' => $courrier->image,
+              'image' => $courrier->image ?? 'default.png',
                 'motif_de_suppression'=>$request->motif_de_suppression
 
             ]);

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('destinataire');
             $table->string('expediteur');
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('motif_de_suppression');
            
             $table->timestamps();

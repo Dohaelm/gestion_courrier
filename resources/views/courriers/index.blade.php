@@ -18,7 +18,7 @@
     @include('components.navbar')
     <div class="container">
         <form action="{{ route('courrier.index') }}" method="GET" class="search-form">
-            <input type="text" name="search" class="search-input" placeholder="Filtrer par expediteur, destinataire, type ou date">
+            <input type="text" name="search" class="search-input" value="{{ $searchTerm ?? '' }}" placeholder="Filtrer par expediteur, destinataire, type ou date">
             <button type="submit" class="search-button">Rechercher</button>
         </form>
 
